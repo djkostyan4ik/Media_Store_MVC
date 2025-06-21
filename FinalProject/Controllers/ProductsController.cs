@@ -1,9 +1,11 @@
 ﻿using FinalProject.Models;
 using FinalProject.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.Controllers;
-
+[Authorize(Roles = "admin")]
+// Defines a route template for Admin area controllers with optional 'id' and default 'action' set to Index
 [Route("/Admin/[controller]/{action=Index}/{id?}")]
 public class ProductsController : Controller
 {
